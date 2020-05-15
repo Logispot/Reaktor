@@ -36,7 +36,7 @@ object Libs {
       "androidx.lifecycle:lifecycle-reactivestreams-ktx:" + Versions.androidx_lifecycle
 
   /**
-   * http://developer.android.com/tools/extras/support-library.html
+   * https://developer.android.com/jetpack/androidx
    */
   const val recyclerview: String = "androidx.recyclerview:recyclerview:" + Versions.recyclerview
 
