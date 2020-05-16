@@ -2,12 +2,15 @@ package at.florianschuster.reaktor.android.koin
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelStoreOwner
 import at.florianschuster.reaktor.Reactor
 import org.koin.androidx.viewmodel.compat.ScopeCompat.viewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.definition.Definition
 import org.koin.core.module.Module
+import org.koin.core.parameter.ParametersDefinition
 import org.koin.core.qualifier.Qualifier
 
 /**
@@ -22,8 +25,8 @@ inline fun <reified R> Module.reactor(
 /**
  * Lazily gets a [Reactor] instance for a [LifecycleOwner].
  */
-/*
-inline fun <L : LifecycleOwner, reified R> L.reactor(
+
+inline fun <L : ViewModelStoreOwner, reified R> L.reactor(
     qualifier: Qualifier? = null,
     noinline parameters: ParametersDefinition? = null
 ): Lazy<R> where R : Reactor<*, *, *>, R : ViewModel = viewModel(qualifier, parameters)
@@ -31,8 +34,7 @@ inline fun <L : LifecycleOwner, reified R> L.reactor(
 /**
  * Gets a [Reactor] instance for a [LifecycleOwner].
  */
-inline fun <reified R> LifecycleOwner.getReactor(
+inline fun <reified R> ViewModelStoreOwner.getReactor(
     qualifier: Qualifier? = null,
     noinline parameters: ParametersDefinition? = null
 ): R where R : Reactor<*, *, *>, R : ViewModel = getViewModel(qualifier, parameters)
-*/
